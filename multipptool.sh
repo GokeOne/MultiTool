@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Author GokeOne
+#FREE USE BE RESPONSIBLE
+
 # Color Definitions
 C=$(printf '\033')
 RED="${C}[1;31m"
