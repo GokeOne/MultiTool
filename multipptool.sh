@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#Author GokeOne
-#FREE USE BE RESPONSIBLE
-
 # Color Definitions
 C=$(printf '\033')
 RED="${C}[1;31m"
@@ -162,9 +159,9 @@ fuzzing_tool() {
 	if [[ "$url" =~ $regex ]]; then
 		all="${BASH_REMATCH[0]}"
 		prefix="${BASH_REMATCH[1]}"
-		domain="${BASH_REMATCH[2]}"
-		port="${BASH_REMATCH[3]}"
-		rest="${BASH_REMATCH[4]}"
+		domain="${BASH_REMATCH[3]}"
+		port="${BASH_REMATCH[4]}"
+		rest="${BASH_REMATCH[5]}"
 	else
 		echo "${RED}This url is not valid${NC}"
 		exit 1
@@ -185,22 +182,38 @@ fuzzing_tool() {
 			echo "1)Only 200 response 2) Ignore empty responses 3) Ignore 18 words *)No filters "
 			read -p "Do you want to add a filter(1-2-3-none): " filter
 			case $filter in
-				1)
-					command="ffuf -u ${url%/}${port:-80}/FUZZ -w ${wordlist} -mc 200"
-					eval "$command"
-					;;
-				2)
-					command="ffuf -u ${url%/}${port:-80}/FUZZ -w ${wordlist} -fs 0"
-					eval "$command"
-					;;
-				3)
-					command="ffuf -u ${url%/}${port:-80}/FUZZ -w ${wordlist} -fw 18"
-					eval "$command"
-					;;
-				*)
-					command="ffuf -u ${url%/}${port:-80}/FUZZ -w ${wordlist}"
-					eval "$command"
-					;;
+   				 1)
+				        if [[ -z "${port}" ]]; then
+      					      command="ffuf -u ${url%/}/FUZZ -w ${wordlist} -mc 200"
+       					 else
+            					command="ffuf -u ${url%/}:${port}/FUZZ -w ${wordlist} -mc 200"
+        				fi
+        				eval "$command"
+       					;;
+    				2)
+        				if [[ -z "${port}" ]]; then
+            					command="ffuf -u ${url%/}/FUZZ -w ${wordlist} -fs 0"
+        				else
+            					command="ffuf -u ${url%/}:${port}/FUZZ -w ${wordlist} -fs 0"
+        				fi
+        				eval "$command"
+        				;;
+    				3)
+        				if [[ -z "${port}" ]]; then
+            					command="ffuf -u ${url%/}/FUZZ -w ${wordlist} -fw 18"
+        				else
+            					command="ffuf -u ${url%/}:${port}/FUZZ -w ${wordlist} -fw 18"
+        				fi
+        				eval "$command"
+        				;;
+    				*)
+        				if [[ -z "${port}" ]]; then
+            					command="ffuf -u ${url%/}/FUZZ -w ${wordlist}"
+        				else
+            					command="ffuf -u ${url%/}:${port}/FUZZ -w ${wordlist}"
+        				fi
+        				eval "$command"
+        			;;
 			esac
 			;;
 		2)
