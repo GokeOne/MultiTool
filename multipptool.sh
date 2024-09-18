@@ -519,13 +519,40 @@ vuln_web(){
 	else
                 echo "[${RED}INFO${NC}]This url is not vulnerable to transversal path"
 	fi
-	#Check SQL injection
-	response=$(curl -s "$url/index.php?id=1'")
-	if [[ $response == *"SQL syntax"* ]]; then
-                write_report "[${BLUE}VULNERABLE${NC}] This url looks vulnerable to SQL Injection"
-	else
-                echo "[${RED}INFO${NC}]This url is not vulnerable to SQL injection"
+
+
+	# Common parameter names to test
+	param_names=("id" "name" "user" "product" "item")
+
+	# SQL injection payload
+	payload="1'"
+	vulnerable=false
+	
+	for param in "${param_names[@]}"; do
+		test_url="${url}/index.php?${param}=${payload}"
+		response=$(curl -s "$test_url")
+		
+		# Check if the response contains SQL syntax error patterns
+		if echo "$response" | grep -q "SQL syntax"; then
+			write_report "[${BLUE}VULNERABLE${NC}] Parameter '${param}' in the URL is vulnerable to SQL Injection"
+			vulnerable=true
+		fi
+	done
+
+	if [ "$vulnerable" = false ]; then
+		echo "[${RED}INFO${NC}] None of the tested parameters appear vulnerable to SQL injection"
 	fi
+
+
+	#Check SQL injection
+	#response=$(curl -s "$url/index.php?id=1'")
+	#if [[ $response == *"SQL syntax"* ]]; then
+     #           write_report "[${BLUE}VULNERABLE${NC}] This url looks vulnerable to SQL Injection"
+	#else
+    #            echo "[${RED}INFO${NC}]This url is not vulnerable to SQL injection"
+	#fi
+	
+
 	#Check file upload vulnerability
 	response=$(curl -s -F "file=@/etc/passwd" "$url/upload")
 	if [[ $response == *"root:x"* ]]; then
