@@ -26,14 +26,23 @@ ffuf: Fuzzing tool used to perform the fuzzing operations. You can install it wi
 - -u: URL to fuzz (required).
 - -w: Path to the wordlist file (required).
 - -o: Type of fuzzing (required):
+  
     1: Directory Fuzzing
+  
     2: GET Fuzzing
+  
     3: POST Fuzzing
+  
     4: Subdomain Fuzzing
+  
 - -f: Filtering options (optional):
+  
     1: Only 200 responses (success).
+  
     2: Ignore empty responses.
+  
     3: Ignore responses with exactly 18 words.
+  
 - -h: Show the help message.
 
 
