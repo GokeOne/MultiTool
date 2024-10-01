@@ -5,6 +5,7 @@ This Bash script allows you to perform a brute-force attack to decrypt hashes us
 ## Requirements
 
 Linux or a Bash-compatible system.
+
 Hashing tools like `md5sum`, `sha1sum`, `sha256sum`, and `sha512sum`.
 
 ## Usage
@@ -38,16 +39,23 @@ Hashing tools like `md5sum`, `sha1sum`, `sha256sum`, and `sha512sum`.
 ## Functionality
 
     The script receives options and validates parameters.
+    
     It prompts the user to enter the hash they want to decrypt.
+
     It splits the wordlist into parts based on the specified number of threads.
+    
     Each thread attempts to compute the hash for each word in its part and checks if it matches the input hash.
+    
     If a match is found, the result is displayed in the console and saved to the output file, if specified.
+    
     If no match is found, the user is notified.
 
 ## Notes
 
 Ensure that the wordlist file exists before running the script.
+
 Using multiple threads can significantly increase the speed of the attack but may also increase the load on the system.
+
 Temporary files generated during execution are automatically cleaned up at the end.
 
 ## Contributions
