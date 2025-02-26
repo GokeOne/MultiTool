@@ -15,21 +15,31 @@ This program has several functionalities, is a program that uses GET requests to
 # Usage
 
 Use of the program:
+
 WebDirectoryAnalyzer [options]
 
 Available options:
+
   -u <url>          Specifies the base URL to scan.
+  
   -w <wordlist>  Specifies the dictionary file with the words to test.
+  
   -fs <code>      Filter by HTTP status code (example: 200).
+  
   -fw <words number>      Filter by minimum number of words on the page.
+  
   -ft <types>       Filters by comma-separated file types (example: php,txt).
+  
   --analyze         Perform additional analysis searching for differents typical sensitive expressions.
+  
   -h                Show help.
 
 Basic example:
+
   program.exe -u webpage.com -w wordlist.txt
 
 Full example:
+
   program.exe -u webpage.com -w wordlist.txt -fs 200 -fw 18 -ft php,txt,html,pdf --analyze
   
 
