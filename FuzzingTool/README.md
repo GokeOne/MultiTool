@@ -21,17 +21,11 @@ WebDirectoryAnalyzer [options]
 Available options:
 
   -u <url>          Specifies the base URL to scan.
-  
   -w <wordlist>  Specifies the dictionary file with the words to test.
-  
   -fs <code>      Filter by HTTP status code (example: 200).
-  
   -fw <words number>      Filter by minimum number of words on the page.
-  
   -ft <types>       Filters by comma-separated file types (example: php,txt).
-  
   --analyze         Perform additional analysis searching for differents typical sensitive expressions.
-  
   -h                Show help.
 
 Basic example:
