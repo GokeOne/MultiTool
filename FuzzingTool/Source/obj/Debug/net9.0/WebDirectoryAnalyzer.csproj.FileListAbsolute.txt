@@ -1,0 +1,14 @@
+F:\C#\WebDirectoryAnalyzer\bin\Debug\net9.0\WebDirectoryAnalyzer.exe
+F:\C#\WebDirectoryAnalyzer\bin\Debug\net9.0\WebDirectoryAnalyzer.deps.json
+F:\C#\WebDirectoryAnalyzer\bin\Debug\net9.0\WebDirectoryAnalyzer.runtimeconfig.json
+F:\C#\WebDirectoryAnalyzer\bin\Debug\net9.0\WebDirectoryAnalyzer.dll
+F:\C#\WebDirectoryAnalyzer\bin\Debug\net9.0\WebDirectoryAnalyzer.pdb
+F:\C#\WebDirectoryAnalyzer\obj\Debug\net9.0\WebDirectoryAnalyzer.GeneratedMSBuildEditorConfig.editorconfig
+F:\C#\WebDirectoryAnalyzer\obj\Debug\net9.0\WebDirectoryAnalyzer.AssemblyInfoInputs.cache
+F:\C#\WebDirectoryAnalyzer\obj\Debug\net9.0\WebDirectoryAnalyzer.AssemblyInfo.cs
+F:\C#\WebDirectoryAnalyzer\obj\Debug\net9.0\WebDirectoryAnalyzer.csproj.CoreCompileInputs.cache
+F:\C#\WebDirectoryAnalyzer\obj\Debug\net9.0\WebDirectoryAnalyzer.dll
+F:\C#\WebDirectoryAnalyzer\obj\Debug\net9.0\refint\WebDirectoryAnalyzer.dll
+F:\C#\WebDirectoryAnalyzer\obj\Debug\net9.0\WebDirectoryAnalyzer.pdb
+F:\C#\WebDirectoryAnalyzer\obj\Debug\net9.0\WebDirectoryAnalyzer.genruntimeconfig.cache
+F:\C#\WebDirectoryAnalyzer\obj\Debug\net9.0\ref\WebDirectoryAnalyzer.dll

@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "D83W7w22DYo=",
+  "success": true,
+  "projectFilePath": "G:\\C#\\WebDirectoryAnalyzer\\WebDirectoryAnalyzer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\trc.Topcon\\.nuget\\packages\\microsoft.net.illink.tasks\\9.0.2\\microsoft.net.illink.tasks.9.0.2.nupkg.sha512",
+    "C:\\Users\\trc.Topcon\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\9.0.2\\microsoft.netcore.app.runtime.win-x64.9.0.2.nupkg.sha512",
+    "C:\\Users\\trc.Topcon\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\9.0.2\\microsoft.windowsdesktop.app.runtime.win-x64.9.0.2.nupkg.sha512",
+    "C:\\Users\\trc.Topcon\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\9.0.2\\microsoft.aspnetcore.app.runtime.win-x64.9.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
