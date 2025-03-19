@@ -23,6 +23,7 @@ Available options:
 - -fw <words number>      Filter by minimum number of words on the page.
 - -ft <types>       Filters by comma-separated file types (example: php,txt).
 - --analyze         Perform additional analysis searching for differents typical sensitive expressions.
+- --pattern         Allow input of custom pattern wordlists.
 - -h                Show help.
 
 Basic example:
